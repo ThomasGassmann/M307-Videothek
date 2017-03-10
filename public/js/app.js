@@ -1,1 +1,1 @@
-console.info('Loaded JS.');
+console.info("Loaded typescript.");
