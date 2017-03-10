@@ -45,23 +45,30 @@
         <div class="container">
             <div class="section">
                 <div class="row">
-                    <div class="col s12 m4">
-                        <div class="icon-block">
-                            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
-                            <h5 class="center">Speeds up development</h5>
-                            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
-                        </div>
-                    </div>
-                    <div class="col s12 m4">
+                    <div class="col s12 m3">
                         <div class="icon-block">
                             <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-                            <h5 class="center">User Experience Focused</h5>
-                            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+                            <h5 class="center">Videos</h5>
+                            <p class="light">Fügen sie neue Videos hinzu oder änderen sie bestehende Videos mit den dazugehörigen Informationen.</p>
                         </div>
                     </div>
-                    <div class="col s12 m4">
+                    <div class="col s12 m3">
                         <div class="icon-block">
-                            <h2 class="center light-blue-text"><i class="material-icons">developer_mode</i></h2>
+                            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+                            <h5 class="center">Ausleihen</h5>
+                            <p class="light">Verwalten sie Einträge der Videos, welche von den Kunden ausgeliehen wurden und sehen sie wann welche Videos zurückgegeben werden müssen.</p>
+                        </div>
+                    </div>
+                    <div class="col s12 m3">
+                        <div class="icon-block">
+                            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+                            <h5 class="center">Kunden</h5>
+                            <p class="light">Finden sie alle Informationen zu den Kunden, erfassen sie neue Kunden oder ändern bestehende Kunden.</p>
+                        </div>
+                    </div>
+                    <div class="col s12 m3">
+                        <div class="icon-block">
+                            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
                             <h5 class="center">ÜK Modul 307</h5>
                             <p class="light">Im ÜK Modul 307 entwickelten wir eine Videothek, welche sich auch auf <a href="https://github.com/ThomasGassmann/M307-Videothek">Github</a> befindet.</p>
                         </div>
@@ -74,11 +81,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
-                        <h5 class="white-text">Company Bio</h5>
-                        <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+                        <h5 class="white-text">Über das Projekt</h5>
+                        <p class="grey-text text-lighten-4">Dieses Projekt entstand in Folge des überbetrieblichen Kurses Modul 307 und wurde von Thomas Gassman sowie Simon Bauemeler entwickelt und dient dazu Videos zu verwalten.</p>
                     </div>
                     <div class="col l3 s12">
-                        <h5 class="white-text">Settings</h5>
+                        <h5 class="white-text">Videos</h5>
                         <ul>
                             <li><a class="white-text" href="#!">Link 1</a></li>
                             <li><a class="white-text" href="#!">Link 2</a></li>
@@ -87,7 +94,7 @@
                         </ul>
                     </div>
                     <div class="col l3 s12">
-                        <h5 class="white-text">Connect</h5>
+                        <h5 class="white-text">Kunden</h5>
                         <ul>
                             <li><a class="white-text" href="#!">Link 1</a></li>
                             <li><a class="white-text" href="#!">Link 2</a></li>
@@ -99,7 +106,7 @@
             </div>
             <div class="footer-copyright">
                 <div class="container">
-                    Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+                    <!-- Empty Footer -->
                 </div>
             </div>
         </footer>
