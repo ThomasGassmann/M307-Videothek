@@ -1,7 +1,6 @@
 <?php
 
 $router = new Router();
-
 $router->define([
-    '' => 'app/Controllers/WelcomeController.php'
+    '' => 'app/Controllers/HomeController.php'
 ]);

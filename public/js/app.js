@@ -1,2 +1,1 @@
-// Javascript
-console.info('JS geladen.');
+console.info('Loaded JS.');
