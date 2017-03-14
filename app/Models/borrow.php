@@ -1,6 +1,6 @@
 <?php
 
-class VideoBorrow extends ModelBase {
+class VideoBorrow extends AbstractModelBase {
     private $wasCreated = false;
 
     public function __constructor() {
@@ -12,9 +12,9 @@ class VideoBorrow extends ModelBase {
 
     public static function fromParams($videoId, $customerId, $borrowDate) {
         $borrow = new VideoBorrow();
-        $borrow->$videoId = $videoId;
-        $borrow->$customerId = $customerId;
-        $borrow->$borrowDate = $borrowDate;     
+        $borrow->videoId = $videoId;
+        $borrow->customerId = $customerId;
+        $borrow->borrowDate = $borrowDate;     
         return $borrow;
     }
 
@@ -59,7 +59,14 @@ class VideoBorrow extends ModelBase {
         }
     }
 
-    public function getById($videoId, $customerId, $borrowDate) {
+    public function getById($dataArray) {
+        return $this->getByParams(
+            $dataArray['videoId'],
+            $dataArray['customerId'],
+            $dataArray['borrowDate']);
+    }
+
+    public function getByParams($videoId, $customerId, $borrowDate) {
         $object = $this->executeSqlStatement(
             'SELECT * FROM videoborrowing WHERE VideoId = ? and CustomerId = ? and BorrowDate = ?',
              $this->videoId,
@@ -85,8 +92,8 @@ class VideoBorrow extends ModelBase {
     }
 
     private function mapDbObjectToInstance($object, $instance) {
-        $instance->$videoId = $object["VideoId"];
-        $instance->$customerId = $object["CustomerId"];
-        $instance->$borrowDate = $object["BorrowDate"];
+        $instance->videoId = $object["VideoId"];
+        $instance->customerId = $object["CustomerId"];
+        $instance->borrowDate = $object["BorrowDate"];
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-class Video extends ModelBase implements IModelBase {
+class Video extends AbstractModelBase {
     private $wasCreated = false;
 
     public function __constructor() {
@@ -14,11 +14,11 @@ class Video extends ModelBase implements IModelBase {
 
     public static function fromParams($id, $length, $title, $releaseYear, $isBorrowed) {
         $video = new Video();
-        $video->$id = $id;
-        $video->$length = $length;
-        $video->$title = $title;
-        $video->$releaseYear = $releaseYear;
-        $video->$isBorrowed = $isBorrowed;;        
+        $video->id = $id;
+        $video->length = $length;
+        $video->title = $title;
+        $video->releaseYear = $releaseYear;
+        $video->isBorrowed = $isBorrowed;;        
         return $video;
     }
 
@@ -51,7 +51,8 @@ class Video extends ModelBase implements IModelBase {
 
     public function delete() {
         if (isset($this->id)) {
-            $this->executeSqlStatement('DELETE FROM video WHERE Id = ?', $this->id);
+            $id = $this->id;
+            $this->executeSqlStatement('DELETE FROM video WHERE Id = ?', $id);
         }
     }
 
@@ -77,10 +78,10 @@ class Video extends ModelBase implements IModelBase {
     }
 
     private function mapDbObjectToInstance($object, $instance) {
-        $instance->$id = $object["Id"];
-        $instance->$title = $object["Title"];
-        $instance->$length = $object["Length"];
-        $instance->$releaseYear = $object["ReleaseYear"];
-        $instance->$isBorrowed = $object["IsBorrowed"];
+        $instance->id = (int)$object["Id"];
+        $instance->title = $object["Title"];
+        $instance->length = (int)$object["Length"];
+        $instance->releaseYear = $object["ReleaseYear"];
+        $instance->isBorrowed = (int)$object["IsBorrowed"];
     }
 }

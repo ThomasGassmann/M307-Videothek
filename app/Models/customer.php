@@ -1,6 +1,6 @@
 <?php
 
-class Customer extends ModelBase implements IModelBase {
+class Customer extends AbstractModelBase {
     private $wasCreated = false;
 
     public function __constructor() {
@@ -15,12 +15,12 @@ class Customer extends ModelBase implements IModelBase {
 
     public static function fromParams($id, $firstName, $lastName, $mail, $phone, $memberShipId) {
         $customer = new Customer();
-        $customer->$id = $id;
-        $customer->$firstName = $firstName;
-        $customer->$lastName = $lastName;
-        $customer->$mail = $mail;
-        $customer->$phone = $phone;
-        $customer->$memberShipId = $memberShipId;        
+        $customer->id = $id;
+        $customer->firstName = $firstName;
+        $customer->lastName = $lastName;
+        $customer->mail = $mail;
+        $customer->phone = $phone;
+        $customer->memberShipId = $memberShipId;        
         return $customer;
     }
 
@@ -81,11 +81,11 @@ class Customer extends ModelBase implements IModelBase {
     }
 
     private function mapDbObjectToInstance($object, $instance) {
-        $instance->$id = $object["Id"];
-        $instance->$firstName = $object["FirstName"];
-        $instance->$lastName = $object["LastName"];
-        $instance->$mail = $object["Mail"];
-        $instance->$phone = $object["Phone"];
-        $instance->$memberShipStateId = $object["MembershipState"];
+        $instance->id = $object["Id"];
+        $instance->firstName = $object["FirstName"];
+        $instance->lastName = $object["LastName"];
+        $instance->mail = $object["Mail"];
+        $instance->phone = $object["Phone"];
+        $instance->memberShipStateId = $object["MembershipState"];
     }
 }

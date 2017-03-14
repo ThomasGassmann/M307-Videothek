@@ -1,6 +1,6 @@
 <?php
 
-class Membership extends ModelBase implements IModelBase {
+class Membership extends AbstractModelBase {
     private $wasCreated = false;
 
     public function __constructor() {
@@ -12,9 +12,9 @@ class Membership extends ModelBase implements IModelBase {
 
     public static function fromParams($id, $name, $borrowDays) {
         $membership = new Membership();
-        $membership->$id = $id;
-        $membership->$name = $name;
-        $membership->$borrowDays = $borrowDays;     
+        $membership->id = $id;
+        $membership->name = $name;
+        $membership->borrowDays = $borrowDays;     
         return $customer;
     }
 
