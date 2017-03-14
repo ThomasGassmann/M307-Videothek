@@ -69,7 +69,7 @@ class Membership extends AbstractModelBase {
     }
 
     private function mapDbObjectToInstance($object, $instance) {
-        $instance->id = $object["Id"];
+        $instance->id = (int)$object["Id"];
         $instance->name = $object["Name"];
         $instance->borrowDays = $object["BorrowDays"];
     }

@@ -81,11 +81,11 @@ class Customer extends AbstractModelBase {
     }
 
     private function mapDbObjectToInstance($object, $instance) {
-        $instance->id = $object["Id"];
+        $instance->id = (int)$object["Id"];
         $instance->firstName = $object["FirstName"];
         $instance->lastName = $object["LastName"];
         $instance->mail = $object["Mail"];
         $instance->phone = $object["Phone"];
-        $instance->memberShipStateId = $object["MembershipState"];
+        $instance->memberShipStateId = (int)$object["MembershipState"];
     }
 }

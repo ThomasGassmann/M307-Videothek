@@ -24,7 +24,7 @@ class VideoBorrow extends AbstractModelBase {
                 'INSERT INTO videoborrowing(VideoId, CustomerId, BorrowDate) values (?, ?, ?)',
                 $this->videoId,
                 $this->customerId,
-                $this->borrowDays);
+                $this->borrowDate);
             $this->wasCreated = true;
         }
     }
@@ -69,9 +69,9 @@ class VideoBorrow extends AbstractModelBase {
     public function getByParams($videoId, $customerId, $borrowDate) {
         $object = $this->executeSqlStatement(
             'SELECT * FROM videoborrowing WHERE VideoId = ? and CustomerId = ? and BorrowDate = ?',
-             $this->videoId,
-             $this->customerId,
-             $this->borrowDate);
+             $videoId,
+             $customerId,
+             $borrowDate);
         if (!isset($object[0])) {
             return null;
         }
@@ -92,8 +92,8 @@ class VideoBorrow extends AbstractModelBase {
     }
 
     private function mapDbObjectToInstance($object, $instance) {
-        $instance->videoId = $object["VideoId"];
-        $instance->customerId = $object["CustomerId"];
+        $instance->videoId = (int)$object["VideoId"];
+        $instance->customerId = (int)$object["CustomerId"];
         $instance->borrowDate = $object["BorrowDate"];
     }
 }

@@ -14,5 +14,8 @@ $router->define([
     'api/Customer/Add' => 'app/Controllers/AddCustomerController.php',
     'api/Customer/DeleteById' => 'app/Controllers/DeleteCustomerByIdController.php',
     'api/Customer/GetAll' => 'app/Controllers/GetAllCustomersController.php',
-    'api/Customer/GetById' => 'app/Controllers/GetCustomerByIdController.php'
+    'api/Customer/GetById' => 'app/Controllers/GetCustomerByIdController.php',
+    'api/Borrow/Add' => 'app/Controllers/AddBorrowController.php',
+    'api/Borrow/GetAll' => 'app/Controllers/GetAllBorrowsController.php',
+    'api/Borrow/GetById' => 'app/Controllers/GetBorrowByIdController.php'
 ]);
