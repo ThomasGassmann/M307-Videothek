@@ -19,38 +19,41 @@ class Membership extends ModelBase implements IModelBase {
     }
 
     public function create() {
-        if (!$this->$wasCreated) {
+        if (!$this->wasCreated) {
             $this->executeSqlStatement(
                 'INSERT INTO membership(Name, BorrowDays) values (?, ?)',
-                $this->$name,
-                $this->$borrowDays);
-            $this->$wasCreated = true;
+                $this->name,
+                $this->borrowDays);
+            $this->wasCreated = true;
         }
     }
 
     public function save() {
         $this->executeSqlStatement(
             'UPDATE membership SET Name = ?, BorrowDays = ? WHERE Id = ?',
-            $this->$name,
-            $this->$borrowDays,
-            $this->$id);
+            $this->name,
+            $this->borrowDays,
+            $this->id);
     }
 
     public function reload() {
-        $object = $this->executeSqlStatement('SELECT * FROM membership WHERE Id = ?', $this->$id);
+        $object = $this->executeSqlStatement('SELECT * FROM membership WHERE Id = ?', $this->id);
         $this->mapDbObjectToInstance($object, $this);
     }
 
     public function delete() {
-        if (isset($this->$id)) {
-            $this->executeSqlStatement('DELETE FROM membership WHERE Id = ?', $this->$id);
+        if (isset($this->id)) {
+            $this->executeSqlStatement('DELETE FROM membership WHERE Id = ?', $this->id);
         }
     }
 
     public function getById($id) {
         $object = $this->executeSqlStatement('SELECT * FROM membership WHERE Id = ?', $id);
         $instance = new Membership();
-        $this->mapDbObjectToInstance($object, $instance);
+        if (!isset($object[0])) {
+            return null;
+        }
+        $this->mapDbObjectToInstance($object[0], $instance);
         return $instance;
     }
 
@@ -66,8 +69,8 @@ class Membership extends ModelBase implements IModelBase {
     }
 
     private function mapDbObjectToInstance($object, $instance) {
-        $instance->$id = $object["Id"];
-        $instance->$name = $object["Name"];
-        $instance->$borrowDays = $object["BorrowDays"];
+        $instance->id = $object["Id"];
+        $instance->name = $object["Name"];
+        $instance->borrowDays = $object["BorrowDays"];
     }
 }

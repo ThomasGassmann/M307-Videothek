@@ -25,44 +25,47 @@ class Customer extends ModelBase implements IModelBase {
     }
 
     public function create() {
-        if (!$this->$wasCreated) {
+        if (!$this->wasCreated) {
             $this->executeSqlStatement(
                 'INSERT INTO customer(FirstName, LastName, Mail, Phone, MembershipState) values (?, ?, ?, ?, ?)',
-                $this->$firstName,
-                $this->$lastName,
-                isset($this->$mail) ? $this->$mail : null,
-                $this->$phone,
-                $this->$memberShipStateId);
-            $this->$wasCreated = true;
+                $this->firstName,
+                $this->lastName,
+                isset($this->mail) ? $this->mail : null,
+                $this->phone,
+                $this->memberShipStateId);
+            $this->wasCreated = true;
         }
     }
 
     public function save() {
         $this->executeSqlStatement(
             'UPDATE customer SET FirstName = ?, LastName = ?, Mail = ?, Phone = ?, MembershipState = ? WHERE Id = ?',
-            $this->$firstName,
-            $this->$lastName,
-            $this->$mail,
-            isset($this->$phone) ? $this->$phone : null,
-            $this->$memberShipStateId,
-            $this->$id);
+            $this->firstName,
+            $this->lastName,
+            $this->mail,
+            isset($this->phone) ? $this->phone : null,
+            $this->memberShipStateId,
+            $this->id);
     }
 
     public function reload() {
-        $object = $this->executeSqlStatement('SELECT * FROM customer WHERE Id = ?', $this->$id);
+        $object = $this->executeSqlStatement('SELECT * FROM customer WHERE Id = ?', $this->id);
         $this->mapDbObjectToInstance($object, $this);
     }
 
     public function delete() {
-        if (isset($this->$id)) {
-            $this->executeSqlStatement('DELETE FROM customer WHERE Id = ?', $this->$id);
+        if (isset($this->id)) {
+            $this->executeSqlStatement('DELETE FROM customer WHERE Id = ?', $this->id);
         }
     }
 
     public function getById($id) {
         $object = $this->executeSqlStatement('SELECT * FROM customer WHERE Id = ?', $id);
+        if (!isset($object[0])) {
+            return null;
+        }
         $instance = new Customer();
-        $this->mapDbObjectToInstance($object, $instance);
+        $this->mapDbObjectToInstance($object[0], $instance);
         return $instance;
     }
 

@@ -23,42 +23,45 @@ class Video extends ModelBase implements IModelBase {
     }
 
     public function create() {
-        if (!$this->$wasCreated) {
+        if (!$this->wasCreated) {
             $this->executeSqlStatement(
                 'INSERT INTO video(Title, Length, ReleaseYear, IsBorrowed) values (?, ?, ?, ?)',
-                $this->$title,
-                isset($this->$length) ? $this->$length : null,
-                isset($this->$releaseYear) ? $this->$releaseYear : null,
-                isset($this->$isBorrowed) ? $this->$isBorrowed : false);
-            $this->$wasCreated = true;
+                $this->title,
+                isset($this->length) ? $this->length : null,
+                isset($this->releaseYear) ? $this->releaseYear : null,
+                isset($this->isBorrowed) ? $this->isBorrowed : false);
+            $this->wasCreated = true;
         }
     }
 
     public function save() {
         $this->executeSqlStatement(
             'UPDATE video SET Title = ?, Length = ?, ReleaseYear = ?, IsBorrowed = ? WHERE Id = ?',
-            $this->$title,
-            isset($this->$length) ? $this->$length : null,
-            isset($this->$releaseYear) ? $this->$releaseYear : null,
-            isset($this->$isBorrowed) ? $this->$isBorrowed : false,
-            $this->$id);
+            $this->title,
+            isset($this->length) ? $this->length : null,
+            isset($this->releaseYear) ? $this->releaseYear : null,
+            isset($this->isBorrowed) ? $this->isBorrowed : false,
+            $this->id);
     }
 
     public function reload() {
-        $object = $this->executeSqlStatement('SELECT * FROM video WHERE Id = ?', $this->$id);
+        $object = $this->executeSqlStatement('SELECT * FROM video WHERE Id = ?', $this->id);
         $this->mapDbObjectToInstance($object, $this);
     }
 
     public function delete() {
-        if (isset($this->$id)) {
-            $this->executeSqlStatement('DELETE FROM video WHERE Id = ?', $this->$id);
+        if (isset($this->id)) {
+            $this->executeSqlStatement('DELETE FROM video WHERE Id = ?', $this->id);
         }
     }
 
     public function getById($id) {
         $object = $this->executeSqlStatement('SELECT * FROM video WHERE Id = ?', $id);
+        if (!isset($object[0])) {
+            return null;
+        }
         $instance = new Video();
-        $this->mapDbObjectToInstance($object, $instance);
+        $this->mapDbObjectToInstance($object[0], $instance);
         return $instance;
     }
 
