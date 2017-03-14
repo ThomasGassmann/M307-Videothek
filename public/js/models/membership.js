@@ -6,6 +6,12 @@ var MembershipState = (function () {
         this.Name = name;
         this.BorrowDays = borrowDays;
     }
+    MembershipState.prototype.getById = function (id) {
+        return $.post({
+            url: '/api/Membership/GetById',
+            data: 'id=' + id
+        });
+    };
     Object.defineProperty(MembershipState.prototype, "Id", {
         get: function () {
             return this.id;

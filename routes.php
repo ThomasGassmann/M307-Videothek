@@ -18,5 +18,7 @@ $router->define([
     'api/Borrow/Add' => 'app/Controllers/AddBorrowController.php',
     'api/Borrow/GetAll' => 'app/Controllers/GetAllBorrowsController.php',
     'api/Borrow/GetById' => 'app/Controllers/GetBorrowByIdController.php',
-    'api/Borrow/DeleteById' => 'app/Controllers/DeleteBorrowByIdController.php'
+    'api/Borrow/DeleteById' => 'app/Controllers/DeleteBorrowByIdController.php',
+    'BorrowList' => 'app/Controllers/BorrowListController.php',
+    'BorrowEdit' => 'app/Controllers/BorrowEditController.php'
 ]);

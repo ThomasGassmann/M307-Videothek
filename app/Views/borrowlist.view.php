@@ -29,53 +29,37 @@
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
         </nav>
+
         <div class="section no-pad-bot" id="index-banner">
             <div class="container">
                 <br><br>
-                <h1 class="header center orange-text">Videothek 307</h1>
-                <div class="row center">
-                    <h5 class="header col s12 light">Simon Baumeler &amp; Thomas Gassmann</h5>
-                </div>
-                <div class="row center">
-                    <a href="#" id="download-button" class="btn-large waves-effect waves-light orange">Videos</a>
-                </div>
-                <br><br>
+                <h1 class="header center orange-text">Ausgeliehene Videos</h1>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Video</th>
+                            <th>Kunde</th>
+                            <th>Ausleihdatum</th>
+                            <th>Rückgabedatum</th>
+                            <th>Smiley</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($array as $item): ?>
+                            <?php
+                                $i = 0;
+                            ?>
+                            <tr id="list<?php $i++ ?>">
+                                <td><?php echo $item['video']->title ?></td>
+                                <td><?php echo $item['customer']->getFullName() ?></td>
+                                <td><?php echo $item['startDate'] ?></td>
+                                <td><?php echo $item['endDate'] ?></td>
+                                <td><?php echo $item['smiley'] ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                </table>
             </div>
-        </div>
-        <div class="container">
-            <div class="section">
-                <div class="row">
-                    <div class="col s12 m3">
-                        <div class="icon-block">
-                            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-                            <h5 class="center">Videos</h5>
-                            <p class="light">Fügen sie neue Videos hinzu oder änderen sie bestehende Videos mit den dazugehörigen Informationen.</p>
-                        </div>
-                    </div>
-                    <div class="col s12 m3">
-                        <div class="icon-block">
-                            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-                            <h5 class="center">Ausleihen</h5>
-                            <p class="light">Verwalten sie Einträge der Videos, welche von den Kunden ausgeliehen wurden und sehen sie wann welche Videos zurückgegeben werden müssen.</p>
-                        </div>
-                    </div>
-                    <div class="col s12 m3">
-                        <div class="icon-block">
-                            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-                            <h5 class="center">Kunden</h5>
-                            <p class="light">Finden sie alle Informationen zu den Kunden, erfassen sie neue Kunden oder ändern bestehende Kunden.</p>
-                        </div>
-                    </div>
-                    <div class="col s12 m3">
-                        <div class="icon-block">
-                            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-                            <h5 class="center">ÜK Modul 307</h5>
-                            <p class="light">Im ÜK Modul 307 entwickelten wir eine Videothek, welche sich auch auf <a href="https://github.com/ThomasGassmann/M307-Videothek">Github</a> befindet.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br><br>
         </div>
         <footer class="page-footer orange">
             <div class="container">
