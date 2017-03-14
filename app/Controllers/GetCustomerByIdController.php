@@ -3,9 +3,9 @@ header('Content-Type: application/json');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST["id"])) {
         http_response_code(200);
-        $membershipId = $_POST["id"];
-        $membership = new Membership();
-        $obj = $membership->getById($membershipId);
+        $customerId = $_POST["id"];
+        $customer = new Customer();
+        $obj = $customer->getById($customerId);
         if ($obj === null) {
             echo json_encode("The given id was not valid.");
         } else {
