@@ -28,7 +28,7 @@ create table Video(
     Title varchar(150),
     Length integer null,
     ReleaseYear date null,
-    IsBorrowed bit default false
+    IsBorrowed integer default false
 );
 
 create table VideoBorrowing(

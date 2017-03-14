@@ -3,13 +3,14 @@ header('Content-Type: application/json');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST["id"])) {
         http_response_code(200);
-        $membershipId = $_POST["id"];
-        $membership = new Membership();
-        $obj = $membership->getById($membershipId);
-        if ($obj === null) {
-            echo json_encode("The given id was not valid.");
+        $customerId = $_POST["id"];
+        $customer = new Customer();
+        $customer->id = $customerId;
+        if ($customer->exists($customerId)) {
+            $customer->delete();
+            echo json_encode("Successfully deleted Membership with id " . $customerId);
         } else {
-            echo json_encode($obj);
+            echo json_encode("Please provide a valid id.");
         }
     } else {
         echo json_encode("Please provide an id.");
