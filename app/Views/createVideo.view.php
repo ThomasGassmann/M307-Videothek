@@ -34,13 +34,13 @@
                 <br><br>
                 <h1 class="header center orange-text">Videothek 307</h1>
                 <div class="row">
-                    <h5 class="header col s12 light">Kunde erfassen:</h5>
+                    <h5 class="header col s12 light">Film erfassen:</h5>
                 </div>
      <form class="col s12" action>
        <div class="row">
         <div class="input-field col s6">
-          <input id="first_name" type="text" class="validate">
-          <label for="first_name">Vorname</label>
+          <input id="title" type="text" class="validate">
+          <label for="title">Filmtitel</label>
         </div>
        </div>
         <div class="row">
@@ -67,7 +67,6 @@
           <label for="phoneNumber">Telefonnummer</label>
         </div>
       </div>
-      
       <div class="row">
         <div class="input-field col s12">
           <input id="createUser" type="submit" class="waves-effect waves-light btn" value="Kunde erfassen">
@@ -89,7 +88,7 @@
                 <div class="row">
                     <div class="col l6 s12">
                         <h5 class="white-text">Über das Projekt</h5>
-                        <p class="grey-text text-lighten-4">Dieses Projekt entstand in Folge des überbetrieblichen Kurses Modul 307 und wurde von Thomas Gassman sowie Simon Bauemeler entwickelt und dient dazu Videos zu verwalten.</p>
+                        <p class="grey-text text-lighten-4">Dieses Projekt entstand in Folge des überbetrieblichen Kurses Modul 307 und wurde von Simon Bauemeler sowie Thomas Gassman entwickelt und dient dazu Videos zu verwalten.</p>
                     </div>
                     <div class="col l3 s12">
                         <h5 class="white-text">Videos</h5>
