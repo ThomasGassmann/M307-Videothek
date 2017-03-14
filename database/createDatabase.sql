@@ -40,7 +40,7 @@ create table VideoBorrowing(
     primary key (CustomerId, VideoId, BorrowDate)
 );
 
-INSERT INTO Movies (Title) VALUES
+INSERT INTO Video (Title) VALUES
     ('Die Reise zum Mond'),
     ('Der große Eisenbahnraub'),
     ('Geburt einer Nation'),
