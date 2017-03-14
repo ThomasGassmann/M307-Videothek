@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="public/node_modules/materialize-css/dist/css/materialize.min.css" />
         <script src="public/node_modules/materialize-css/dist/js/materialize.min.js"></script>
         <link rel="stylesheet" href="public/css/app.css" />
+        <script>
+        </script>
     </head>
     <body>
         <nav class="light-blue lighten-1" role="navigation">
@@ -27,40 +29,43 @@
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
         </nav>
+        <div class="row">
+            <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="Vorname" id="firstNameField" type="text" class="validate">
+                    <label for="firstNameField">Vorname</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="Nachname" id="lastNameField" type="text" class="validate">
+                    <label for="lastNameField">Nachname</label>
+                </div>
+                <div class="input-field col s12">
+                    <input placeholder="Mail" id="mailField" type="email" class="validate">
+                    <label for="mailField">Mail</label>
+                </div>
+                <div class="input-field col s12">
+                    <input placeholder="Telefon" id="phoneField" type="text" class="validate">
+                    <label for="phoneField">Telefon</label>
+                </div>
+                <div class="input-field col s12">
+                    <select id="membershipField" class="browser-default">
+                        <?php foreach($memberships as $membership): ?>
+                            <option value="<?= $membership->id ?>"><?= $membership->name ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
 
-        <div class="section no-pad-bot" id="index-banner">
-            <div class="container">
-                <br><br>
-                <h1 class="header center orange-text">Ausgeliehene Videos</h1>
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Video</th>
-                            <th>Kunde</th>
-                            <th>Ausleihdatum</th>
-                            <th>Rückgabedatum</th>
-                            <th>Smiley</th>
-                            <th>Zurückgegeben?</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach($array as $item): ?>
-                            <?php
-                                $i = 0;
-                            ?>
-                            <tr id="list<?php $i++ ?>">
-                                <td><?php echo $item['video']->title ?></td>
-                                <td><?php echo $item['customer']->getFullName() ?></td>
-                                <td><?php echo $item['startDate'] ?></td>
-                                <td><?php echo $item['endDate'] ?></td>
-                                <td><?php echo $item['smiley'] ?></td>
-                                <td><a class="waves-effect waves-light btn" href="javascript:toggleVideoBorrowed(<?= $item['video']->id ?>)"><?= $item['video']->isBorrowed ? 'Wurde zurückgeben' : 'Wurde ausgeliehen' ?></a></td>
-                            </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                </table>
+                <div class="input-field col s12">
+                    <a class="waves-effect waves-light btn" href="javascript:createCustomer()">erstellen</a>
+                </div>
+                <div class="input-field col s12">
+                    <p id="errors"></p>
+                </div>
             </div>
+            </form>
         </div>
+        
         <footer class="page-footer orange">
             <div class="container">
                 <div class="row">
@@ -77,10 +82,5 @@
             </div>
         </footer>
         <script src="public/js/app.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('.modal').modal();
-            });
-        </script>
     </body>
 </html>

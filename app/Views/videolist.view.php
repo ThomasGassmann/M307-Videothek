@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="public/node_modules/materialize-css/dist/css/materialize.min.css" />
         <script src="public/node_modules/materialize-css/dist/js/materialize.min.js"></script>
         <link rel="stylesheet" href="public/css/app.css" />
+        <script>
+        </script>
     </head>
     <body>
         <nav class="light-blue lighten-1" role="navigation">
@@ -27,20 +29,14 @@
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
         </nav>
-
-        <div class="section no-pad-bot" id="index-banner">
-            <div class="container">
-                <br><br>
-                <h1 class="header center orange-text">Ausgeliehene Videos</h1>
-                    <table>
-                        <thead>
+            <table>
+                <thead>
                         <tr>
-                            <th>Video</th>
-                            <th>Kunde</th>
-                            <th>Ausleihdatum</th>
-                            <th>Rückgabedatum</th>
-                            <th>Smiley</th>
-                            <th>Zurückgegeben?</th>
+                            <th>Titel</th>
+                            <th>Länge</th>
+                            <th>Erscheinungsjahr</th>
+                            <th>Ist aktuell ausgeliehen?</th>
+                            <th>Löschen</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -49,18 +45,15 @@
                                 $i = 0;
                             ?>
                             <tr id="list<?php $i++ ?>">
-                                <td><?php echo $item['video']->title ?></td>
-                                <td><?php echo $item['customer']->getFullName() ?></td>
-                                <td><?php echo $item['startDate'] ?></td>
-                                <td><?php echo $item['endDate'] ?></td>
-                                <td><?php echo $item['smiley'] ?></td>
-                                <td><a class="waves-effect waves-light btn" href="javascript:toggleVideoBorrowed(<?= $item['video']->id ?>)"><?= $item['video']->isBorrowed ? 'Wurde zurückgeben' : 'Wurde ausgeliehen' ?></a></td>
+                                <td><?php echo $item->title ?></td>
+                                <td><?php echo $item->length === 0 ? '' : $item->length ?></td>
+                                <td><?php echo $item->releaseYear ?></td>
+                                <td><?php echo $item->isBorrowed === 0 ? 'Nein' : 'Ja' ?></td>
+                                <td><a class="waves-effect waves-light btn" href="javascript:deleteVideo(<?= $item->id ?>)">Löschen</a></td>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>
                 </table>
-            </div>
-        </div>
         <footer class="page-footer orange">
             <div class="container">
                 <div class="row">
@@ -77,10 +70,6 @@
             </div>
         </footer>
         <script src="public/js/app.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('.modal').modal();
-            });
-        </script>
+        <script src="public/js/models/video.js"></script>
     </body>
 </html>

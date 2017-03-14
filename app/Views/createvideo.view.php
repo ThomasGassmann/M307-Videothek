@@ -8,39 +8,52 @@
         <link rel="stylesheet" href="public/node_modules/materialize-css/dist/css/materialize.min.css" />
         <script src="public/node_modules/materialize-css/dist/js/materialize.min.js"></script>
         <link rel="stylesheet" href="public/css/app.css" />
+        <script>
+        </script>
     </head>
     <body>
         <nav class="light-blue lighten-1" role="navigation">
-            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Videothek</a>
+            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Vidicted</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Kunde erfassen</a></li>
-                    <li><a href="#">Video erfassen</a></li>
-                    <li><a href="#">Videoliste</a></li>
-                    <li><a href="#">Kundenliste</a></li>
-                    <li><a href="#">Kundenstatus-Liste</a></li>
+                    <li><a href="/">Startseite</a></li>
+                    <li><a href="/BorrowList">Ausleihliste</a></li>
+                    <li><a href="/BorrowCreate">Erstellen</a></li>
+                    <li><a href="/BorrowEdit">Bearbeiten</a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#">Kunde erfassen</a></li>
-                    <li><a href="#">Video erfassen</a></li>
-                    <li><a href="#">Videoliste</a></li>
-                    <li><a href="#">Kundenliste</a></li>
-                    <li><a href="#">Kundenstatus-Liste</a></li>
+                    <li><a href="/">Startseite</a></li>
+                    <li><a href="/BorrowList">Ausleihliste</a></li>
+                    <li><a href="/BorrowCreate">Erstellen</a></li>
+                    <li><a href="/BorrowEdit">Bearbeiten</a></li>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
         </nav>
-
-        <div class="section no-pad-bot" id="index-banner">
-            <div class="container">
-                <br><br>
-                <h1 class="header center orange-text">Ausgeliehene Videos bearbeiten</h1>
-                <select class="browser-default" id="selectBorrow">
-                    <?php foreach($array as $item): ?>
-                        <option value="<?= $item['id'] ?>"><?=  $item['video']->title . ' für ' . $item['customer']->getFullName() . ' am ' . $item['startDate']  ?></option>
-                    <?php endforeach; ?>
-                </select>
+        <div class="row">
+            <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="Titel" id="titleField" type="text" class="validate">
+                    <label for="title">Title</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="1975" id="releaseYearField" type="text" class="validate">
+                    <label for="title">Erscheinungsjahr</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="130" id="lengthField" type="text" class="validate">
+                    <label for="title">Länge in Minutes</label>
+                </div>
+                <div class="input-field col s6">
+                    <a class="waves-effect waves-light btn" href="javascript:createVideo()">erstellen</a>
+                </div>
+                <div class="input-field col s12">
+                    <p id="errors"></p>
+                </div>
             </div>
+            </form>
         </div>
+        
         <footer class="page-footer orange">
             <div class="container">
                 <div class="row">

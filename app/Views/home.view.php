@@ -11,20 +11,18 @@
     </head>
     <body>
         <nav class="light-blue lighten-1" role="navigation">
-            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Videothek</a>
+            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Vidicted</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Kunde erfassen</a></li>
-                    <li><a href="#">Video erfassen</a></li>
-                    <li><a href="#">Videoliste</a></li>
-                    <li><a href="#">Kundenliste</a></li>
-                    <li><a href="#">Kundenstatus-Liste</a></li>
+                    <li><a href="/">Startseite</a></li>
+                    <li><a href="/BorrowList">Ausleihliste</a></li>
+                    <li><a href="/BorrowCreate">Erstellen</a></li>
+                    <li><a href="/BorrowEdit">Bearbeiten</a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#">Kunde erfassen</a></li>
-                    <li><a href="#">Video erfassen</a></li>
-                    <li><a href="#">Videoliste</a></li>
-                    <li><a href="#">Kundenliste</a></li>
-                    <li><a href="#">Kundenstatus-Liste</a></li>
+                    <li><a href="/">Startseite</a></li>
+                    <li><a href="/BorrowList">Ausleihliste</a></li>
+                    <li><a href="/BorrowCreate">Erstellen</a></li>
+                    <li><a href="/BorrowEdit">Bearbeiten</a></li>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
@@ -32,12 +30,12 @@
         <div class="section no-pad-bot" id="index-banner">
             <div class="container">
                 <br><br>
-                <h1 class="header center orange-text">Videothek 307</h1>
+                <h1 class="header center orange-text">Vidicted 307</h1>
                 <div class="row center">
                     <h5 class="header col s12 light">Simon Baumeler &amp; Thomas Gassmann</h5>
                 </div>
                 <div class="row center">
-                    <a href="#" id="download-button" class="btn-large waves-effect waves-light orange">Videos</a>
+                    <a href="/BorrowList" id="download-button" class="btn-large waves-effect waves-light orange">Video ansehen</a>
                 </div>
                 <br><br>
             </div>

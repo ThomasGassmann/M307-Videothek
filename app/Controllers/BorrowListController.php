@@ -14,7 +14,7 @@ foreach ($all as $item) {
     $start = date('d.m.Y', $date);
     $end = date('d.m.Y', $final_date);
     $smiley = '😁';
-    if ($video->isBorrowed === 1 && time() < $final_date) {
+    if ($video->isBorrowed === 1 && time() > $final_date) {
         $smiley = '😠';
     }
     $toAdd = array(
@@ -26,5 +26,10 @@ foreach ($all as $item) {
     );
     array_push($array, $toAdd);
 }
+usort($array, function($a, $b) {
+    $t1 = strtotime($a['startDate']);
+    $t2 = strtotime($b['startDate']);
+    return $t1 - $t2;
+});
 
 require 'app/Views/borrowlist.view.php';
