@@ -40,6 +40,12 @@ create table VideoBorrowing(
     primary key (CustomerId, VideoId, BorrowDate)
 );
 
+INSERT INTO Customer (FirstName, LastName, Mail, MembershipState) VALUES 
+    ('Thomas', 'Gassmann', 'thomas.gassmann@hotmail.com', 1),
+    ('Simon', 'Gassmann', 'simon.gassmann@hotmail.com', 2),
+    ('Simon', 'Baumeler', 'simon.baumeler@hotmail.com', 3),
+    ('First', 'Last', 'first.last@hotmail.com', 4);
+
 INSERT INTO Video (Title) VALUES
     ('Die Reise zum Mond'),
     ('Der große Eisenbahnraub'),
