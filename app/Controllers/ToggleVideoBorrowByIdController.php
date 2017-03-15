@@ -7,7 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $borrow = new VideoBorrow();
         $video = new Video();
         $customer = new Customer();
-        $timestamp = date('Y-m-d H:i:s', strtotime($_POST['borrowDate']));
+        $time = strtotime($_POST['borrowDate']);
+        $timestamp = date('Y-m-d H:i:s', $time);
         if ($borrow->getByParams($_POST['videoId'], $_POST['customerId'], $timestamp) !== null) {
             $dbV = (new Video())->getById($_POST['videoId']);
             $borrow = (new VideoBorrow())->getByParams($_POST['videoId'], $_POST['customerId'], $timestamp);
