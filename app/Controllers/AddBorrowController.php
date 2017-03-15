@@ -23,18 +23,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $format = 'd/m/Y';
         $d = DateTime::createFromFormat($format, $_POST['borrowDate']);
-        if (!($d && $d->format($format) == $_POST['borrowDate'])) {
+        if (!($d && $d->format($format) === $_POST['borrowDate'])) {
             $errors["INVALID_BORROWDATE"] = 'The given borrow date is not valid.';
         }   
     }
     $borrowed = new VideoBorrow();
-    // TODO
-    if (!$borrowed->getByParams($_POST['videoId'], $_POST['customerId'], $_POST['borrowDate'])) {
-        $errors['INVALID_DOUBLED'] = 'The given dataset already exists.';
+    if (isset($_POST['borrowDate']) && isset($_POST['customerId']) && isset($_POST['videoId'])) {
+        if ($borrowed->getByParams($_POST['videoId'], $_POST['customerId'], $_POST['borrowDate']) !== null) {
+            $errors['INVALID_DOUBLED'] = 'The given dataset already exists.';
+        }
     }
-
     if (count($errors) === 0) {
-        $borrow = new VIdeoBorrow();
+        $borrow = new VideoBorrow();
         $borrow->videoId = $_POST['videoId'];
         $borrow->customerId = $_POST['customerId'];
         $timestamp = date('Y-m-d H:i:s', strtotime($_POST['borrowDate']));  
