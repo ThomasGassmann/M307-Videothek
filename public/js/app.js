@@ -22,7 +22,7 @@ console.info("Loaded typescript.");
         };
         $.ajax({
             method: 'POST',
-            url: '/api/Video/Add',
+            url: 'api/Video/Add',
             data: data
         }).done(function (result) {
             displayErrors(result);
@@ -50,7 +50,7 @@ console.info("Loaded typescript.");
         };
         $.ajax({
             method: 'POST',
-            url: '/api/Customer/Add',
+            url: 'api/Customer/Add',
             data: data
         }).done(function (result) {
             displayErrors(result);

@@ -3,7 +3,7 @@
         var id = $('#customerField').val();
         $.ajax({
             method: 'POST',
-            url: '/api/GetDate',
+            url: 'api/GetDate',
             data: {
                 customerId: id
             }
@@ -37,7 +37,7 @@
         date = scope.formatDate(date, 'dd-MM-yyyy');
         $.ajax({
             method: 'POST',
-            url: '/api/Borrow/Add',
+            url: 'api/Borrow/Add',
             data: {
                 customerId: cId,
                 videoId: vId,

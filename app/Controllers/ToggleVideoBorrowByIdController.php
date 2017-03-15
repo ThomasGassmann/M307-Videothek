@@ -7,13 +7,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $borrow = new VideoBorrow();
         $video = new Video();
         $customer = new Customer();
-        $timestamp = $_POST['borrowDate'];
+        $timestamp = date('Y-m-d H:i:s', strtotime($_POST['borrowDate']));
         if ($borrow->getByParams($_POST['videoId'], $_POST['customerId'], $timestamp) !== null) {
             $dbV = (new Video())->getById($_POST['videoId']);
             $borrow = (new VideoBorrow())->getByParams($_POST['videoId'], $_POST['customerId'], $timestamp);
-            var_dump($borrow);
-            var_dump($dbv);
-
             if ($dbV->isBorrowed === 1) {
                 $borrow->delete();
                 $dbV->isBorrowed = 0;
