@@ -5,13 +5,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!isset($_POST['title']) || $_POST['title'] === null || $_POST['title'] === '') {
         $errors['INVALID_TITLE'] = 'Please provide a valid title.';
     }
-    if (isset($_POST['releaseYear'])) {
+    if (isset($_POST['releaseYear']) && $_POST['releaseYear'] !== '') {
         if (!preg_match("/^(19|20)\d{2}$/", $_POST['releaseYear'])) {
             $errors['INVALID_RELEASEYEAR'] = 'Please provide a valid ReleaseYear of the video.';
         }
     }
-    if (isset($_POST['length'])) {
-        if (!preg_match("/[0-9]{0,3}/", $_POST['length']) || $_POST['length'] === '') {
+    if (isset($_POST['length']) && $_POST['length'] !== '') {
+        if (!preg_match("/[0-9]{1,3}/", $_POST['length'])) {
             $errors['INVALID_LENGTH'] = 'The movie can only be in between 0 - 999.';
         }
     }

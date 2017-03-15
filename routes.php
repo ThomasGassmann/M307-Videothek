@@ -20,5 +20,12 @@ $router->define([
     'api/Borrow/GetAll' => 'app/Controllers/GetAllBorrowsController.php',
     'api/Borrow/GetById' => 'app/Controllers/GetBorrowByIdController.php',
     'api/Borrow/DeleteById' => 'app/Controllers/DeleteBorrowByIdController.php',
+    'api/Video/ToggleBorrowById' => 'app/Controllers/ToggleVideoBorrowByIdController.php',
+    'api/Customer/UpdateById' => 'app/Controllers/UpdateCustomerByIdController.php',
+    'BorrowList' => 'app/Controllers/BorrowListController.php',
+    'CreateVideo' => 'app/Controllers/CreateVideoController.php',
+    'VideoList' => 'app/Controllers/VideoListController.php',
+    'CreateCustomer' => 'app/Controllers/CreateCustomerController.php',
+    'CustomerList' => 'app/Controllers/CustomerListController.php',
     'api/GetDate' => 'app/Controllers/GetDateController.php'
 ]);

@@ -27,7 +27,15 @@
                 borrowDate: date
             }
         }).done(function(result){
-            window.location.href = "/";
+            var errors = $('#errors');
+            errors.html('');
+            for (var res in result) {
+                errors.append(result[res]);
+                errors.append('<br>');
+            }
+            if (result["SUCCESS"] !== undefined) {
+                window.location.href = "/BorrowList";
+            }
         }).fail(function (result) {
             alert(result);
         });

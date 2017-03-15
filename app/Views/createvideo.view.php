@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="public/node_modules/materialize-css/dist/css/materialize.min.css" />
         <script src="public/node_modules/materialize-css/dist/js/materialize.min.js"></script>
         <link rel="stylesheet" href="public/css/app.css" />
+        <script>
+        </script>
     </head>
     <body>
         <nav class="light-blue lighten-1" role="navigation">
@@ -29,51 +31,31 @@
         </nav>
         <div class="section no-pad-bot" id="index-banner">
             <div class="container">
-                <br><br>
-                <h1 class="header center orange-text">Vidicted 307</h1>
-                <div class="row center">
-                    <h5 class="header col s12 light">Simon Baumeler &amp; Thomas Gassmann</h5>
-                </div>
-                <div class="row center">
-                    <a href="/BorrowList" id="download-button" class="btn-large waves-effect waves-light orange">Video ansehen</a>
-                </div>
-                <br><br>
-            </div>
-        </div>
-        <div class="container">
-            <div class="section">
                 <div class="row">
-                    <div class="col s12 m3">
-                        <div class="icon-block">
-                            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-                            <h5 class="center">Videos</h5>
-                            <p class="light">Fügen sie neue Videos hinzu oder änderen sie bestehende Videos mit den dazugehörigen Informationen.</p>
+                    <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="Titel" id="titleField" type="text" class="validate">
+                            <label for="title">Title</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="1975" id="releaseYearField" type="text" class="validate">
+                            <label for="title">Erscheinungsjahr</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="130" id="lengthField" type="text" class="validate">
+                            <label for="title">Länge in Minutes</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <a class="waves-effect waves-light btn" href="javascript:createVideo()">erstellen</a>
+                        </div>
+                        <div class="input-field col s12">
+                            <p id="errors"></p>
                         </div>
                     </div>
-                    <div class="col s12 m3">
-                        <div class="icon-block">
-                            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-                            <h5 class="center">Ausleihen</h5>
-                            <p class="light">Verwalten sie Einträge der Videos, welche von den Kunden ausgeliehen wurden und sehen sie wann welche Videos zurückgegeben werden müssen.</p>
-                        </div>
-                    </div>
-                    <div class="col s12 m3">
-                        <div class="icon-block">
-                            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-                            <h5 class="center">Kunden</h5>
-                            <p class="light">Finden sie alle Informationen zu den Kunden, erfassen sie neue Kunden oder ändern bestehende Kunden.</p>
-                        </div>
-                    </div>
-                    <div class="col s12 m3">
-                        <div class="icon-block">
-                            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-                            <h5 class="center">ÜK Modul 307</h5>
-                            <p class="light">Im ÜK Modul 307 entwickelten wir eine Videothek, welche sich auch auf <a href="https://github.com/ThomasGassmann/M307-Videothek">Github</a> befindet.</p>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
-            <br><br>
         </div>
         <footer class="page-footer orange">
             <div class="container">

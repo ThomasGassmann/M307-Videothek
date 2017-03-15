@@ -2,6 +2,13 @@
 header('Content-Type: application/json');
 $errors = array();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!isset($_POST['id'])) {
+        $errors["INVALID_ID"] = 'Please provide an id.';
+    } else {
+        if (!(new Customer())->exists($_POST['id'])) {
+            $errors["INVALID_OPERATION"] = 'For an udpate the item has to exist.';
+        }
+    }
     if (!isset($_POST['firstName']) || $_POST['firstName'] === null || $_POST['firstName'] === '') {
         $errors['INVALID_FIRSTNAME'] = 'Please provide a valid first name.';
     }
@@ -16,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
     if (isset($_POST['phone'])) {
-        if ($_POST['phone'] !== '' && !preg_match("/^[0123456789+()/ -]*$/", $_POST['phone'])) {
+        if ($_POST['phone'] !== '' && !preg_match("/^[0123456789+()\/ -]*$/", $_POST['phone'])) {
             $errors["INVALID_PHONE"] = 'The phone number is invalid and should not be empty or contain no letters.';
         }
     }
@@ -29,14 +36,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
     if (count($errors) === 0) {
-        $customer = new Customer();
+        $customer = (new Customer())->getById($_POST['id']);
         $customer->firstName = $_POST['firstName'];
         $customer->lastName = $_POST['lastName'];
         $customer->mail = $_POST['mail'];
         $customer->phone = $_POST['phone'];
-        $customer->memberShipStateId = $_POST['membership'];
-        $customer->create();
-        $errors["SUCCESS"] = 'The video was successfully created.';
+        $customer->memberShipStateId = $_POST['membership'];        
+        $customer->save();
+        $errors["SUCCESS"] = 'The video was successfully updated.';
     }
 } else {
     $errors['REQUEST_METHOD'] = 'Please use HTTP POST';

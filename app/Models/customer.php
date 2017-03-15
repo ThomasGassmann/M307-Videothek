@@ -69,6 +69,10 @@ class Customer extends AbstractModelBase {
         return $instance;
     }
 
+    public function getFullName() {
+        return $this->firstName . ' ' . $this->lastName;
+    }
+
     public function getAll() {
         $results = $this->executeSqlStatement('SELECT * FROM customer');
         $returnArray = array();
