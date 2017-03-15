@@ -8,16 +8,16 @@ console.info("Loaded typescript.");
             errors.append(result[res]);
             errors.append('<br>');
         }
-    }
+    };
 
     scope.createVideo = function () {
-        var title = $('#titleField').val();
-        var length = $('#lengthField').val();
-        var releaseYear = $('#releaseYearField').val();
+        var title = $('#titleField');
+        var length = $('#lengthField');
+        var releaseYear = $('#releaseYearField');
         var data = {
-            title: title,
-            length: length,
-            releaseYear: releaseYear,
+            title: title.val(),
+            length: length.val(),
+            releaseYear: releaseYear.val(),
             isBorrowed: 0
         };
         $.ajax({
@@ -26,15 +26,24 @@ console.info("Loaded typescript.");
             data: data
         }).done(function (result) {
             displayErrors(result);
+            if (result["SUCCESS"] !== '') {
+                title.val('');
+                length.val('');
+                releaseYear.val('');
+            }
         });
-    }
+    };
 
     scope.createCustomer = function () {
+        var firstName = $('#firstNameField');
+        var lastName = $('#lastNameField');
+        var mail = $('#mailField');
+        var phone = $('#phoneField');
         var data = {
-            firstName: $('#firstNameField').val(),
-            lastName: $('#lastNameField').val(),
-            mail: $('#mailField').val(),
-            phone: $('#phoneField').val(),
+            firstName: firstName.val(),
+            lastName: lastName.val(),
+            mail: mail.val(),
+            phone: phone.val(),
             membership: $("select#membershipField option").filter(":selected").val()
         };
         $.ajax({
@@ -43,10 +52,16 @@ console.info("Loaded typescript.");
             data: data
         }).done(function (result) {
             displayErrors(result);
+            if (result['SUCCESS'] !== '') {
+                firstName.val('');
+                lastName.val('');
+                mail.val('');
+                phone.val('');
+            }
         });
-    }
+    };
 
-    scope.deleteCustomer = function (id) {
+    scope.deleteCustomer = function (id, elementToRemove) {
         $.ajax({
             method: 'POST',
             url: 'api/Customer/DeleteById',
@@ -54,11 +69,11 @@ console.info("Loaded typescript.");
                 id: id
             }
         }).done(function (result){
-            window.location.reload();
+            $('#' + elementToRemove).remove();
         }).fail(function (result) {
             alert("Konnte nicht gelöscht werden, da Kunde immer noch in Verwendung ist.");   
         });
-    }
+    };
 
     scope.toggleVideoBorrowed = function (id) {
         $.ajax({
@@ -70,7 +85,7 @@ console.info("Loaded typescript.");
         }).done(function (result) {
             window.location.reload();
         });
-    }
+    };
 
     scope.editCustomer = function (id) {
         $('#editModal').modal('open');
@@ -90,7 +105,7 @@ console.info("Loaded typescript.");
         }).fail(function (result) {
             displayErrors(result);  
         });
-    }
+    };
 
     scope.saveEditCustomer = function (id) {
         var id = $('#idField').val();
@@ -115,9 +130,9 @@ console.info("Loaded typescript.");
         }).fail(function (error) {
             alert(error);
         });
-    }
+    };
 
-    scope.deleteVideo = function (id) {
+    scope.deleteVideo = function (id, elementToRemove) {
         $.ajax({
             method: 'POST',
             url: 'api/Video/DeleteById',
@@ -125,9 +140,9 @@ console.info("Loaded typescript.");
                 id: id
             }
         }).done(function (result) {
-            window.location.reload();
+            $('#' + elementToRemove).remove();
         }).fail(function (result) {
             alert("Konnte nicht gelöscht werden, da Video immer noch in Verwendung ist.");   
-        });;;
-    }
+        });
+    };
 })(window, $);

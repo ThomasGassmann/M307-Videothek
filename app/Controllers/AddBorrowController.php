@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }   
     }
     $borrowed = new VideoBorrow();
+    // TODO
     if (!$borrowed->getByParams($_POST['videoId'], $_POST['customerId'], $_POST['borrowDate'])) {
         $errors['INVALID_DOUBLED'] = 'The given dataset already exists.';
     }

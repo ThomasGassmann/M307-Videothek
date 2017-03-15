@@ -14,15 +14,15 @@
             <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Vidicted</a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="/">Startseite</a></li>
-                    <li><a href="/BorrowList">Ausleihliste</a></li>
-                    <li><a href="/BorrowCreate">Erstellen</a></li>
-                    <li><a href="/BorrowEdit">Bearbeiten</a></li>
+                    <li><a href="/BorrowList">Ausleihen</a></li>
+                    <li><a href="/VideoList">Videos</a></li>
+                    <li><a href="/CustomerList">Kunden</a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
                     <li><a href="/">Startseite</a></li>
-                    <li><a href="/BorrowList">Ausleihliste</a></li>
-                    <li><a href="/BorrowCreate">Erstellen</a></li>
-                    <li><a href="/BorrowEdit">Bearbeiten</a></li>
+                    <li><a href="/BorrowList">Ausleihen</a></li>
+                    <li><a href="/VideoList">Videos</a></li>
+                    <li><a href="/CustomerList">Kunden</a></li>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>

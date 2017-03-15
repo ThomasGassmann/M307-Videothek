@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
     if (isset($_POST['phone'])) {
-        if ($_POST['phone'] !== '' && preg_match("/[A-Za-z]/", $_POST['phone'])) {
+        if ($_POST['phone'] !== '' && !preg_match("/^[0123456789+()\/ -]*$/", $_POST['phone'])) {
             $errors["INVALID_PHONE"] = 'The phone number is invalid and should not be empty or contain no letters.';
         }
     }

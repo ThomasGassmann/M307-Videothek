@@ -16,44 +16,47 @@
             <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Vidicted</a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="/">Startseite</a></li>
-                    <li><a href="/BorrowList">Ausleihliste</a></li>
-                    <li><a href="/BorrowCreate">Erstellen</a></li>
-                    <li><a href="/BorrowEdit">Bearbeiten</a></li>
+                    <li><a href="/BorrowList">Ausleihen</a></li>
+                    <li><a href="/VideoList">Videos</a></li>
+                    <li><a href="/CustomerList">Kunden</a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
                     <li><a href="/">Startseite</a></li>
-                    <li><a href="/BorrowList">Ausleihliste</a></li>
-                    <li><a href="/BorrowCreate">Erstellen</a></li>
-                    <li><a href="/BorrowEdit">Bearbeiten</a></li>
+                    <li><a href="/BorrowList">Ausleihen</a></li>
+                    <li><a href="/VideoList">Videos</a></li>
+                    <li><a href="/CustomerList">Kunden</a></li>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
         </nav>
-        <div class="row">
-            <form class="col s12">
-            <div class="row">
-                <div class="input-field col s6">
-                    <input placeholder="Titel" id="titleField" type="text" class="validate">
-                    <label for="title">Title</label>
-                </div>
-                <div class="input-field col s6">
-                    <input placeholder="1975" id="releaseYearField" type="text" class="validate">
-                    <label for="title">Erscheinungsjahr</label>
-                </div>
-                <div class="input-field col s6">
-                    <input placeholder="130" id="lengthField" type="text" class="validate">
-                    <label for="title">Länge in Minutes</label>
-                </div>
-                <div class="input-field col s6">
-                    <a class="waves-effect waves-light btn" href="javascript:createVideo()">erstellen</a>
-                </div>
-                <div class="input-field col s12">
-                    <p id="errors"></p>
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <div class="row">
+                    <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="Titel" id="titleField" type="text" class="validate">
+                            <label for="title">Title</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="1975" id="releaseYearField" type="text" class="validate">
+                            <label for="title">Erscheinungsjahr</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="130" id="lengthField" type="text" class="validate">
+                            <label for="title">Länge in Minutes</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <a class="waves-effect waves-light btn" href="javascript:createVideo()">erstellen</a>
+                        </div>
+                        <div class="input-field col s12">
+                            <p id="errors"></p>
+                        </div>
+                    </div>
+                    </form>
                 </div>
             </div>
-            </form>
         </div>
-        
         <footer class="page-footer orange">
             <div class="container">
                 <div class="row">

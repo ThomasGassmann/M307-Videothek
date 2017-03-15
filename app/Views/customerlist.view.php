@@ -16,15 +16,15 @@
             <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Vidicted</a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="/">Startseite</a></li>
-                    <li><a href="/BorrowList">Ausleihliste</a></li>
-                    <li><a href="/BorrowCreate">Erstellen</a></li>
-                    <li><a href="/BorrowEdit">Bearbeiten</a></li>
+                    <li><a href="/BorrowList">Ausleihen</a></li>
+                    <li><a href="/VideoList">Videos</a></li>
+                    <li><a href="/CustomerList">Kunden</a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
                     <li><a href="/">Startseite</a></li>
-                    <li><a href="/BorrowList">Ausleihliste</a></li>
-                    <li><a href="/BorrowCreate">Erstellen</a></li>
-                    <li><a href="/BorrowEdit">Bearbeiten</a></li>
+                    <li><a href="/BorrowList">Ausleihen</a></li>
+                    <li><a href="/VideoList">Videos</a></li>
+                    <li><a href="/CustomerList">Kunden</a></li>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
@@ -70,6 +70,7 @@
                         <a href="javascript:saveEditCustomer()" class=" modal-action waves-effect waves-green btn-flat">Save</a>
                     </div>
                 </div>
+            <a href="/CreateCustomer" class=" waves-effect waves-light btn">Neu</a>
             <table>
                 <thead>
                         <tr>
@@ -83,17 +84,17 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($array as $item): ?>
                             <?php
                                 $i = 0;
                             ?>
-                            <tr id="list<?php $i++ ?>">
+                            <?php foreach($array as $item): ?>
+                            <tr id="list<?= $i++ ?>">
                                 <td><?php echo $item['FirstName'] ?></td>
                                 <td><?php echo $item['LastName'] ?></td>
                                 <td><?php echo $item['Mail'] ?></td>
                                 <td><?php echo $item['Phone'] ?></td>
                                 <td><?php echo $item['Membership']->name ?></td>
-                                <td><a class="waves-effect waves-light btn" href="javascript:deleteCustomer(<?= $item['Id'] ?>)">Löschen</a></td>
+                                <td><a class="waves-effect waves-light btn" href="javascript:deleteCustomer(<?= $item['Id'] ?>, '<?= 'list' . ($i - 1) ?>')">Löschen</a></td>
                                 <td><a class="waves-effect waves-light btn" href="javascript:editCustomer(<?= $item['Id'] ?>)">Bearbeiten</a></td>
                             </tr>
                             <?php endforeach; ?>
