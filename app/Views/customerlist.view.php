@@ -29,10 +29,12 @@
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
         </nav>
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
             <div id="editModal" class="modal">
                 <div class="modal-content">
                     <h4>Edit</h4>
-                        <div>
+                        <div class="container">
                             <div class="row">
                                 <input type="hidden" id="idField">
                                 <div class="input-field col s6">
@@ -97,6 +99,8 @@
                             <?php endforeach; ?>
                         </tbody>
                 </table>
+            </div>
+        </div>
         <footer class="page-footer orange">
             <div class="container">
                 <div class="row">

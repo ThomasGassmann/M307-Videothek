@@ -29,8 +29,10 @@
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
         </nav>
-            <table>
-                <thead>
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <table>
+                    <thead>
                         <tr>
                             <th>Titel</th>
                             <th>Länge</th>
@@ -42,34 +44,35 @@
                         <tbody>
                             <?php foreach($array as $item): ?>
                             <?php
-                                $i = 0;
-                            ?>
-                            <tr id="list<?php $i++ ?>">
-                                <td><?php echo $item->title ?></td>
-                                <td><?php echo $item->length === 0 ? '' : $item->length ?></td>
-                                <td><?php echo $item->releaseYear ?></td>
-                                <td><?php echo $item->isBorrowed === 0 ? 'Nein' : 'Ja' ?></td>
-                                <td><a class="waves-effect waves-light btn" href="javascript:deleteVideo(<?= $item->id ?>)">Löschen</a></td>
-                            </tr>
+                                    $i = 0;
+                                ?>
+                                <tr id="list<?php $i++ ?>">
+                                    <td><?php echo $item->title ?></td>
+                                    <td><?php echo $item->length === 0 ? '' : $item->length ?></td>
+                                    <td><?php echo $item->releaseYear ?></td>
+                                    <td><?php echo $item->isBorrowed === 0 ? 'Nein' : 'Ja' ?></td>
+                                    <td><a class="waves-effect waves-light btn" href="javascript:deleteVideo(<?= $item->id ?>)">Löschen</a></td>
+                                </tr>
                             <?php endforeach; ?>
                         </tbody>
-                </table>
-        <footer class="page-footer orange">
-            <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Über das Projekt</h5>
-                        <p class="grey-text text-lighten-4">Dieses Projekt entstand in Folge des überbetrieblichen Kurses Modul 307 und wurde von Thomas Gassman sowie Simon Bauemeler entwickelt und dient dazu Videos zu verwalten.</p>
+                    </table>
+                </div>
+            </div>
+            <footer class="page-footer orange">
+                <div class="container">
+                    <div class="row">
+                        <div class="col l6 s12">
+                            <h5 class="white-text">Über das Projekt</h5>
+                            <p class="grey-text text-lighten-4">Dieses Projekt entstand in Folge des überbetrieblichen Kurses Modul 307 und wurde von Thomas Gassman sowie Simon Bauemeler entwickelt und dient dazu Videos zu verwalten.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="footer-copyright">
-                <div class="container">
-                    <!-- Empty Footer -->
+                <div class="footer-copyright">
+                    <div class="container">
+                        <!-- Empty Footer -->
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
         <script src="public/js/app.js"></script>
-        <script src="public/js/models/video.js"></script>
-    </body>
+        </body>
 </html>
