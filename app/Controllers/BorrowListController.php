@@ -17,12 +17,15 @@ foreach ($all as $item) {
     if ($video->isBorrowed === 1 && time() > $final_date) {
         $smiley = '😠';
     }
+    $borrowDate = date('d-m-Y', strtotime($item->borrowDate));
     $toAdd = array(
         'video' => $video,
         'customer' => $customer,
         'startDate' => $start,
         'endDate' => $end,
-        'smiley' => $smiley
+        'smiley' => $smiley,
+        'customerId' => ($item->customerId),
+        'borrowDate' => $borrowDate
     );
     array_push($array, $toAdd);
 }

@@ -79,12 +79,14 @@ console.info("Loaded typescript.");
         });
     };
 
-    scope.toggleVideoBorrowed = function (id) {
+    scope.toggleVideoBorrowed = function (videoId, customerId, borrowDate) {
         $.ajax({
             url: 'api/Video/ToggleBorrowById',
             method: 'POST',
             data: {
-                id: id
+                videoId: videoId,
+                customerId: customerId,
+                borrowDate: borrowDate
             }
         }).done(function (result) {
             window.location.reload();

@@ -2,21 +2,32 @@
 
 header('Content-Type: application/json');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST["id"])) {
+    if (isset($_POST["videoId"]) && isset($_POST['customerId']) && isset($_POST['borrowDate'])) {
         http_response_code(200);
-        $videoId = $_POST["id"];
+        $borrow = new VideoBorrow();
         $video = new Video();
-        $video->id = $videoId;
-        if ($video->exists($videoId)) {
-            $dbV = (new Video())->getById($videoId);
-            $dbV->isBorrowed = $dbV->isBorrowed === 0 ? 1 : 0;
+        $customer = new Customer();
+        $timestamp = $_POST['borrowDate'];
+        if ($borrow->getByParams($_POST['videoId'], $_POST['customerId'], $timestamp) !== null) {
+            $dbV = (new Video())->getById($_POST['videoId']);
+            $borrow = (new VideoBorrow())->getByParams($_POST['videoId'], $_POST['customerId'], $timestamp);
+            var_dump($borrow);
+            var_dump($dbv);
+
+            if ($dbV->isBorrowed === 1) {
+                $borrow->delete();
+                $dbV->isBorrowed = 0;
+            } else {
+                $dbV->isBorrowed = $video->isBorrowed === 1 ? 0 : 1;
+            }
+
             $dbV->save();
-            echo json_encode("Successfully toggled borrowed state of video with id " . $videoId);
+            echo json_encode("Successfully toggled borrowed state.");
         } else {
-            echo json_encode("Please provide a valid id.");
+            echo json_encode("Please provide a set of valid ids.");
         }
     } else {
-        echo json_encode("Please provide an id.");
+        echo json_encode("Please provide a set of ids.");
         http_response_code(400);
     }
 } else {

@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!isset($_POST['borrowDate']) || $_POST['borrowDate'] === '') {
         $errors["INVALID_BORROWDATE"] = 'Please provide a borrow date.';
     } else {
-        $format = 'd/m/Y';
+        $format = 'd-m-Y';
         $d = DateTime::createFromFormat($format, $_POST['borrowDate']);
         if (!($d && $d->format($format) === $_POST['borrowDate'])) {
             $errors["INVALID_BORROWDATE"] = 'The given borrow date is not valid.';
@@ -39,6 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $borrow->customerId = $_POST['customerId'];
         $timestamp = date('Y-m-d H:i:s', strtotime($_POST['borrowDate']));  
         $borrow->borrowDate = $timestamp;
+        $video = new Video();
+        $dbVideo = $video->getById($_POST['videoId']);
+        $dbVideo->isBorrowed = 1;
+        $dbVideo->save();
         $borrow->create();
         $errors["SUCCESS"] = 'The video was successfully created.';
     }

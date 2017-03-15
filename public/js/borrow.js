@@ -34,7 +34,7 @@
         var cId = $('#customerField').val();
         var vId = $('#videoField').val();
         var date = new Date();
-        date = scope.formatDate(date, 'dd/MM/yyyy');
+        date = scope.formatDate(date, 'dd-MM-yyyy');
         $.ajax({
             method: 'POST',
             url: '/api/Borrow/Add',
@@ -51,10 +51,10 @@
                 errors.append('<br>');
             }
             if (result["SUCCESS"] !== undefined) {
-                window.location.href = "/BorrowList";
+                window.location.href = "BorrowList";
             }
         }).fail(function (result) {
-            alert(result);
+            alert("Das Video wurde bereits ausgeliehen!!");
         });
     }
 })(window, $);

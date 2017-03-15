@@ -2,18 +2,18 @@ drop database video;
 create database video;
 use video;
 
-create table Membership(
+create table membership(
     Id integer primary key AUTO_INCREMENT,
     Name varchar(50),
     BorrowDays smallint
 );
 
-insert into Membership (Name, BorrowDays) values ('keine', 30);
-insert into Membership (Name, BorrowDays) values ('Bronze', 40);
-insert into Membership (Name, BorrowDays) values ('Silber', 50);
-insert into Membership (Name, BorrowDays) values ('Gold', 70);
+insert into membership (Name, BorrowDays) values ('keine', 30);
+insert into membership (Name, BorrowDays) values ('Bronze', 40);
+insert into membership (Name, BorrowDays) values ('Silber', 50);
+insert into membership (Name, BorrowDays) values ('Gold', 70);
 
-create table Customer(
+create table customer(
     Id integer primary key AUTO_INCREMENT,
     FirstName varchar(100),
     LastName varchar(100),
@@ -23,7 +23,7 @@ create table Customer(
     foreign key (MembershipState) references Membership(Id)
 );
 
-create table Video(
+create table video(
     Id integer primary key AUTO_INCREMENT,
     Title varchar(150),
     Length integer null,
@@ -31,7 +31,7 @@ create table Video(
     IsBorrowed integer default false
 );
 
-create table VideoBorrowing(
+create table videoborrowing(
     CustomerId integer,
     foreign key (CustomerId) references Customer(Id),
     VideoId integer,
@@ -40,13 +40,13 @@ create table VideoBorrowing(
     primary key (CustomerId, VideoId, BorrowDate)
 );
 
-INSERT INTO Customer (FirstName, LastName, Mail, MembershipState) VALUES 
+INSERT INTO customer (FirstName, LastName, Mail, MembershipState) VALUES 
     ('Thomas', 'Gassmann', 'thomas.gassmann@hotmail.com', 1),
     ('Simon', 'Gassmann', 'simon.gassmann@hotmail.com', 2),
     ('Simon', 'Baumeler', 'simon.baumeler@hotmail.com', 3),
     ('First', 'Last', 'first.last@hotmail.com', 4);
 
-INSERT INTO Video (Title) VALUES
+INSERT INTO video (Title) VALUES
     ('Die Reise zum Mond'),
     ('Der große Eisenbahnraub'),
     ('Geburt einer Nation'),

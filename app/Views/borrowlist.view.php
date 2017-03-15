@@ -13,16 +13,16 @@
         <nav class="light-blue lighten-1" role="navigation">
             <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Vidicted</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="/">Startseite</a></li>
-                    <li><a href="/BorrowList">Ausleihen</a></li>
-                    <li><a href="/VideoList">Videos</a></li>
-                    <li><a href="/CustomerList">Kunden</a></li>
+                    <li><a href="">Startseite</a></li>
+                    <li><a href="BorrowList">Ausleihen</a></li>
+                    <li><a href="VideoList">Videos</a></li>
+                    <li><a href="CustomerList">Kunden</a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="/">Startseite</a></li>
-                    <li><a href="/BorrowList">Ausleihen</a></li>
-                    <li><a href="/VideoList">Videos</a></li>
-                    <li><a href="/CustomerList">Kunden</a></li>
+                    <li><a href="">Startseite</a></li>
+                    <li><a href="BorrowList">Ausleihen</a></li>
+                    <li><a href="VideoList">Videos</a></li>
+                    <li><a href="CustomerList">Kunden</a></li>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
@@ -31,7 +31,7 @@
             <div class="container">
                 <br><br>
                 <h1 class="header center orange-text">Ausgeliehene Videos</h1>
-                <a href="/CreateBorrow" class=" waves-effect waves-light btn">Neu</a>
+                <a href="CreateBorrow" class=" waves-effect waves-light btn">Neu</a>
                     <table>
                         <thead>
                         <tr>
@@ -54,7 +54,7 @@
                                 <td><?php echo $item['startDate'] ?></td>
                                 <td><?php echo $item['endDate'] ?></td>
                                 <td><?php echo $item['smiley'] ?></td>
-                                <td><a class="waves-effect waves-light btn" href="javascript:toggleVideoBorrowed(<?= $item['video']->id ?>)"><?= $item['video']->isBorrowed ? 'Wurde zurückgeben' : 'Wurde ausgeliehen' ?></a></td>
+                                <td><a class="waves-effect waves-light btn" href="javascript:toggleVideoBorrowed(<?= $item['video']->id ?>, <?= $item['customerId'] ?>, '<?= $item['borrowDate'] ?>')"><?= $item['video']->isBorrowed ? 'Wurde zurückgeben' : 'Wurde ausgeliehen' ?></a></td>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>
