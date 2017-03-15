@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!isset($_POST['customerId']) || $_POST['customerId'] === '') {
         $errors["INVALID_CUSTOMER"] = 'Please provide a customer id.';
     } else {
-        if (!$video->exists($_POST['customerId'])) {
+        if (!($customer->exists($_POST['customerId']))) {
             $errors["INVALID_CUSTOMER"] = 'The given customer id does not exist.';
         }
     }

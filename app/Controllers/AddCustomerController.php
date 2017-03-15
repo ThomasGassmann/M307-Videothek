@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
     if (isset($_POST['phone'])) {
-        if ($_POST['phone'] !== '' && !preg_match("/^[0123456789+()/ -]*$/", $_POST['phone'])) {
+        if ($_POST['phone'] !== '' && !preg_match("/^[0123456789+()\/ -]*$/", $_POST['phone'])) {
             $errors["INVALID_PHONE"] = 'The phone number is invalid and should not be empty or contain no letters.';
         }
     }
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $customer->phone = $_POST['phone'];
         $customer->memberShipStateId = $_POST['membership'];
         $customer->create();
-        $errors["SUCCESS"] = 'The video was successfully created.';
+        $errors["SUCCESS"] = 'The customer was successfully created.';
     }
 } else {
     $errors['REQUEST_METHOD'] = 'Please use HTTP POST';

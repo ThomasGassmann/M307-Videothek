@@ -31,6 +31,8 @@ console.info("Loaded typescript.");
                 length.val('');
                 releaseYear.val('');
             }
+        }).fail(function (res) {
+            alert(res);
         });
     };
 
@@ -58,6 +60,8 @@ console.info("Loaded typescript.");
                 mail.val('');
                 phone.val('');
             }
+        }).fail(function (res) {
+            alert(res);
         });
     };
 

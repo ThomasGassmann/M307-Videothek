@@ -62,6 +62,7 @@ class Customer extends AbstractModelBase {
     public function getById($id) {
         $object = $this->executeSqlStatement('SELECT * FROM customer WHERE Id = ?', $id);
         if (!isset($object[0])) {
+            var_dump($id);
             return null;
         }
         $instance = new Customer();

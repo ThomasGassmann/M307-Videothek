@@ -4,7 +4,7 @@ $customers = (new Customer())->getAll();
 $customerArray = array(); 
 foreach($customers as $customer){
     array_push($customerArray, array(
-        'name' => $customer->firstName . ' ' . $customer->lastName,
+        'name' => $customer->getFullName(),
         'id' => $customer->id)); 
 };
 $videos = (new Video())->getAll();
