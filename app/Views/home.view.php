@@ -13,14 +13,14 @@
         <nav class="light-blue lighten-1" role="navigation">
             <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Videothek</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Kunde erfassen</a></li>
+                    <li><a href="borrowVideo">Video verleihen</a></li>
                     <li><a href="#">Video erfassen</a></li>
                     <li><a href="#">Videoliste</a></li>
                     <li><a href="#">Kundenliste</a></li>
                     <li><a href="#">Kundenstatus-Liste</a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#">Kunde erfassen</a></li>
+                    <li><a href="borrowVideo">Video verleihen</a></li>
                     <li><a href="#">Video erfassen</a></li>
                     <li><a href="#">Videoliste</a></li>
                     <li><a href="#">Kundenliste</a></li>

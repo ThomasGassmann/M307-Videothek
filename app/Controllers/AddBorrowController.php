@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (count($errors) === 0) {
-        $borrow = new VIdeoBorrow();
+        $borrow = new VideoBorrow();
         $borrow->videoId = $_POST['videoId'];
         $borrow->customerId = $_POST['customerId'];
         $timestamp = date('Y-m-d H:i:s', strtotime($_POST['borrowDate']));  

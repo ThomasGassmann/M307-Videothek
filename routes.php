@@ -3,6 +3,7 @@
 $router = new Router();
 $router->define([
     '' => 'app/Controllers/HomeController.php',
+    'CreateBorrow' => 'app/Controllers/borrowVideoController.php',
     'api/Membership/GetById' => 'app/Controllers/GetMembershipByIdController.php',
     'api/Membership/DeleteById' => 'app/Controllers/DeleteMembershipByIdController.php',
     'api/Membership/Add' => 'app/Controllers/AddMembershipController.php',
@@ -18,5 +19,6 @@ $router->define([
     'api/Borrow/Add' => 'app/Controllers/AddBorrowController.php',
     'api/Borrow/GetAll' => 'app/Controllers/GetAllBorrowsController.php',
     'api/Borrow/GetById' => 'app/Controllers/GetBorrowByIdController.php',
-    'api/Borrow/DeleteById' => 'app/Controllers/DeleteBorrowByIdController.php'
+    'api/Borrow/DeleteById' => 'app/Controllers/DeleteBorrowByIdController.php',
+    'api/GetDate' => 'app/Controllers/GetDateController.php'
 ]);
