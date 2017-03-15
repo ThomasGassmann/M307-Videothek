@@ -93,6 +93,24 @@ console.info("Loaded typescript.");
         });
     };
 
+    scope.editVideo = function (id) {
+        $('#editModal').modal('open');
+        $.ajax({
+            method: 'POST',
+            url: 'api/Video/GetById',
+            data: {
+                id: id
+            }
+        }).done(function (result) {
+            $('#titleField').val(result['title']);
+            $('#lengthField').val(result['length']);
+            $('#releaseYearField').val(result['releaseYear']);
+            $('#idField').val(result['id']);
+        }).fail(function (result) {
+            displayErrors(result);  
+        });
+    };
+
     scope.editCustomer = function (id) {
         $('#editModal').modal('open');
         $.ajax({
@@ -112,6 +130,29 @@ console.info("Loaded typescript.");
             displayErrors(result);  
         });
     };
+
+    scope.saveEditVideo = function (id) {
+        var id = $('#idField').val();
+        var data = {
+            id: id,
+            title: $('#titleField').val(),
+            length: $('#lengthField').val(),
+            releaseYear: $('#releaseYearField').val()
+        };
+        $.ajax({
+            method: 'POST',
+            url: 'api/Video/UpdateById',
+            data: data
+        }).done(function (result) {
+            displayErrors(result);
+            if (result['SUCCESS'] === 'The video was successfully updated.') {
+                $('#editModal').modal('close');
+                window.location.reload();
+            }
+        }).fail(function (error) {
+            alert(error);
+        });
+    }
 
     scope.saveEditCustomer = function (id) {
         var id = $('#idField').val();

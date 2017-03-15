@@ -31,6 +31,34 @@
         </nav>
         <div class="section no-pad-bot" id="index-banner">
             <div class="container">
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <h4>Edit</h4>
+                        <div class="container">
+                         <div class="row">
+                        <input type="hidden" id="idField">
+                        <div class="input-field col s12">
+                            <input placeholder="Titel" id="titleField" type="text" class="validate">
+                            <label for="title">Title</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="1975" id="releaseYearField" type="text" class="validate">
+                            <label for="title">Erscheinungsjahr</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="130" id="lengthField" type="text" class="validate">
+                            <label for="title">Länge in Minutes</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <p id="errors"></p>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="javascript:saveEditVideo()" class=" modal-action waves-effect waves-green btn-flat">Save</a>
+                    </div>
+                </div>
                 <a href="CreateVideo" class=" waves-effect waves-light btn">Neu</a>
                 <table>
                     <thead>
@@ -40,6 +68,7 @@
                             <th>Erscheinungsjahr</th>
                             <th>Ist aktuell ausgeliehen?</th>
                             <th>Löschen</th>
+                            <th>Bearbeiten</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -50,9 +79,10 @@
                                 <tr id="list<?= $i++ ?>">
                                     <td><?php echo $item->title ?></td>
                                     <td><?php echo $item->length === 0 ? '' : $item->length ?></td>
-                                    <td><?php echo $item->releaseYear ?></td>
+                                    <td><?php echo $item->releaseYear === ''  ? '' : substr($item->releaseYear, 0, 4) ?></td>
                                     <td><?php echo $item->isBorrowed === 0 ? 'Nein' : 'Ja' ?></td>
                                     <td><a class="waves-effect waves-light btn" href="javascript:deleteVideo(<?= $item->id ?>, '<?= 'list' . ($i - 1) ?>')">Löschen</a></td>
+                                    <td><a class="waves-effect waves-light btn" href="javascript:editVideo(<?= $item->id ?>)">Bearbeiten</a></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
@@ -75,5 +105,10 @@
                 </div>
             </footer>
         <script src="public/js/app.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('.modal').modal();
+            });
+        </script>
         </body>
 </html>

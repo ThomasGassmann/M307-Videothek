@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST["id"])) {
         http_response_code(200);
         $videoId = $_POST["id"];
-        $video = new Membership();
+        $video = new Video();
         $obj = $video->getById($videoId);
         if ($obj === null) {
             echo json_encode("The given id was not valid.");

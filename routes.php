@@ -3,7 +3,7 @@
 $router = new Router();
 $router->define([
     '' => 'app/Controllers/HomeController.php',
-    'CreateBorrow' => 'app/Controllers/borrowVideoController.php',
+    'CreateBorrow' => 'app/Controllers/BorrowVideoController.php',
     'api/Membership/GetById' => 'app/Controllers/GetMembershipByIdController.php',
     'api/Membership/DeleteById' => 'app/Controllers/DeleteMembershipByIdController.php',
     'api/Membership/Add' => 'app/Controllers/AddMembershipController.php',
@@ -27,5 +27,6 @@ $router->define([
     'VideoList' => 'app/Controllers/VideoListController.php',
     'CreateCustomer' => 'app/Controllers/CreateCustomerController.php',
     'CustomerList' => 'app/Controllers/CustomerListController.php',
-    'api/GetDate' => 'app/Controllers/GetDateController.php'
+    'api/GetDate' => 'app/Controllers/GetDateController.php',
+    'api/Video/UpdateById' => 'app/Controllers/UpdateVideoByIdController.php'
 ]);
