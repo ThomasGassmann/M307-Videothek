@@ -41,10 +41,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $borrow->borrowDate = $timestamp;
         $video = new Video();
         $dbVideo = $video->getById($_POST['videoId']);
-        $dbVideo->isBorrowed = 1;
-        $dbVideo->save();
-        $borrow->create();
-        $errors["SUCCESS"] = 'The video was successfully created.';
+        if ($dbVideo->isBorrowed === 1) {
+            http_response_code(400);
+        } else {
+            $dbVideo->isBorrowed = 1;
+            $dbVideo->save();
+            $borrow->create();
+            $errors["SUCCESS"] = 'The video was successfully created.';
+        }
     }
 } else {
     $errors['REQUEST_METHOD'] = 'Please use HTTP POST';

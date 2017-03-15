@@ -19,7 +19,7 @@
                     <li><a href="CustomerList">Kunden</a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="">Startseite</a></li>
+                    <li><a href="/m307_1/simon_thomas">Startseite</a></li>
                     <li><a href="BorrowList">Ausleihen</a></li>
                     <li><a href="VideoList">Videos</a></li>
                     <li><a href="CustomerList">Kunden</a></li>

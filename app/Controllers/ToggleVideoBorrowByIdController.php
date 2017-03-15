@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $borrow->delete();
                 $dbV->isBorrowed = 0;
             } else {
-                $dbV->isBorrowed = $video->isBorrowed === 1 ? 0 : 1;
+                $dbV->isBorrowed = $dbV->isBorrowed === 1 ? 0 : 1;
             }
 
             $dbV->save();
